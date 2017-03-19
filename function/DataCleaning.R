@@ -1,0 +1,23 @@
+rm(list=ls())
+getwd()
+setwd('/Users/ab/Desktop/semester4/R/HW/HW10/function')
+library(readxl)
+dat<-read.csv("HW9-ArrestMini.csv")
+lenunique<-function(x){
+  length(unique(x))
+}
+AggregateByCase<-function(group,x){
+  idx<-which(is.na(x))
+  newCouncil_District<-x[-idx]
+  newArrestTime<-group[-idx]
+  time1<-as.character(newArrestTime)
+  time2<-strsplit(time1,"T")
+  time3<-lapply(time2,"[[",1)
+  time4<-unlist(time3)
+  date<-as.Date(time4,"%Y-%m-%d")
+  dat<-data.frame(date,newCouncil_District)
+  count<-aggregate(dat$newCouncil_District,list(dat$date),lenunique)
+  names(count)[1:2]<-c("time","DistrCount")
+  return(count)
+}
+
