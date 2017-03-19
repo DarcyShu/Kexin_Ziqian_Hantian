@@ -1,8 +1,7 @@
 rm(list=ls())
-getwd()
-setwd('/Users/ab/Desktop/semester4/R/HW/HW10/function')
-library(readxl)
-dat<-read.csv("HW9-ArrestMini.csv")
+install.packages("repmis")
+library(repmis)
+source_data("https://github.com/DarcyShu/Kexin_Ziqian_Hantian/raw/master/HW9-ArrestMini.csv")
 lenunique<-function(x){
   length(unique(x))
 }
