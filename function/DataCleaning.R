@@ -18,9 +18,11 @@ AggregateByCase<-function(group,x){
   time3<-lapply(time2,"[[",1)       
   time4<-unlist(time3)
   date<-as.Date(time4,"%Y-%m-%d")   # Convert the format of dates into Rstudio format. 
+  date<-as.factor(date)
   dat<-data.frame(date,newCouncil_District)
   count<-aggregate(dat$newCouncil_District,list(dat$date),lenunique)   # Count the numbers of districts by given days. 
   names(count)[1:2]<-c("time","DistrCount")
   return(count)
 }
+
 
