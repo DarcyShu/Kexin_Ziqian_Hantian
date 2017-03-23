@@ -34,7 +34,7 @@ PlotbyTime<-function(time,count){
     geom_point()+
     theme(axis.text.x = element_text(size=6, angle=90))+
     ggtitle("Number of Council Districts Involved Across Time")+
-    labs(x="Year",y="Number of Council Districts")
+    labs(x="Date",y="Number of Council Districts")
 }
 
 PlotbyTime(FinalDate$time,FinalDate$DistrCount)
