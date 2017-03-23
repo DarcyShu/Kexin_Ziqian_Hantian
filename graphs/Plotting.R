@@ -14,6 +14,8 @@ plot(factor(Time), FinalDate$DistrCount,
 
 install.packages("ggplot2") #ggplot
 library(ggplot2)
+FinalDate<-AggregateByCase(dat$ARRESTTIME,dat$COUNCIL_DISTRICT)
+qplot(x,y,data=,main="")
 qplot(Time,DistrCount,data=FinalDate,main="Count_Crime")
 ggplot(FinalDate,aes(x=Time,y=FinalDate$DistrCount))+
   geom_point()+

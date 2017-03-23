@@ -24,3 +24,4 @@ AggregateByCase<-function(group,x){
   return(count)
 }
 
+FinalDate<-AggregateByCase(dat$ARRESTTIME,dat$COUNCIL_DISTRICT)
