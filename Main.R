@@ -1,4 +1,4 @@
-# HW9-ArrestData. Kexin_Ziqian_Hantian
+# HW9-Main Script: Kexin_Ziqian_Hantian
 rm(list=ls())
 # Reading a Rdata file from Github. 
 install.packages("repmis")
@@ -24,5 +24,20 @@ AggregateByCase<-function(group,x){
   names(count)[1:2]<-c("time","DistrCount")
   return(count)
 }
+FinalDate<-AggregateByCase(dat$ARRESTTIME,dat$COUNCIL_DISTRICT)
+
+install.packages("ggplot2") #ggplot
+library(ggplot2)
+PlotbyTime<-function(time,count){
+  dat<-data.frame(time,count)
+  ggplot(dat, aes(x=time, y=count))+
+    geom_point()+
+    theme(axis.text.x = element_text(size=6, angle=90))+
+    ggtitle("Number of Council Districts Involved Across Time")+
+    labs(x="Year",y="Number of Council Districts")
+}
+
+PlotbyTime(FinalDate$time,FinalDate$DistrCount)
+
 
 
